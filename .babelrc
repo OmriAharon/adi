@@ -1,0 +1,26 @@
+{
+  "plugins": [
+    "babel-plugin-syntax-trailing-function-commas",
+    "babel-plugin-transform-class-properties",
+    ["babel-plugin-transform-object-rest-spread", { "useBuiltIns": true }],
+    "babel-plugin-syntax-dynamic-import"
+  ],
+  "presets": [
+    ["es2015", { "modules": false }],
+    "react"
+  ],
+  "env": {
+    "local": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    },
+    "es": {
+    },
+    "test": {
+      "plugins": [
+        "babel-plugin-transform-es2015-modules-commonjs"
+      ]
+    }
+  }
+}

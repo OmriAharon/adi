@@ -1,0 +1,32 @@
+# SEO
+SITE_TITLE: Dr. Adi Goldshtein Aharon, Dentist
+SITE_DESCRIPTION: Dr. Adi Goldshtein Aharon - Tel-Aviv University Graduate & Instructor
+SITE_KEYWORDS: adi, goldshtein, aharon, dentist, tel-aviv university, dmd, dr, doctor
+
+# Title
+
+DR: DR.
+NAME: Adi Goldshtein Aharon
+DESC_LINE: Professional, thorough and sensitive dentist, committed to provide you with the highest quality treatment you could ask for.
+CONTACT: Contact
+
+# Features
+
+SCHOOL: Elite School
+SCHOOL_DESC: Graduated Dentistry school at Tel-Aviv University.
+INSTRUCTOR: Instructor
+INSTRUCTOR_DESC: Clinical years instructor at Tel-Aviv University.
+GAS: Nitrous oxide
+GAS_DESC: Licensed to practice Nitrous oxide ("Laughing Gas").
+
+# Footer
+
+VALID_FORM: Please enter your phone number or email.
+FORM_SEND_ERROR: There has been an error, please try again.
+FORM_SENT: Sent!
+FORM_SENDING: Submitting...
+SUBMIT: Submit
+PLACEHOLDER_NAME: Name
+PLACEHOLDER_EMAIL: Email
+PLACEHOLDER_PHONE: Phone number
+PLACEHOLDER_MESSAGE: Message

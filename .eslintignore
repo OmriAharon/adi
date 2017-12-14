@@ -1,0 +1,10 @@
+node_modules/**/*.js
+**/*.min.js
+dist/**/*.js
+es/**/*.js
+coverage/**/*.js
+packages/bim360-matrix-react-components/es/**/*.js
+packages/bim360-matrix-react-components/storybook-static/**/*.js
+packages/bim360-matrix-react-components/node_modules/**/*.js
+packages/bim360-svg-store-transform-loader/node_modules/**/*.js
+hiddenUsers.js

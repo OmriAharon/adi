@@ -1,0 +1,31 @@
+# IDE
+.idea
+
+# VSCode
+.vscode
+
+# npm
+node_modules
+npm-debug.log*
+selenium-debug.log
+
+# Distribute directory
+dist
+coverage
+
+# Ignore annoying DS files
+.DS_Store
+*.DS_Store
+**.DS_Store
+
+# jest
+jest
+
+# webpack
+webpack.stats.json
+
+# zips
+*.zip
+
+#AWS
+hiddenS3Data.json

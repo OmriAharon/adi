@@ -73,13 +73,13 @@ class Title extends React.Component {
           <div className="col-xs-12 lj-title" ref={ (_) => (this.mainTitle = _)}>
             <h1 className={ titleClasses }><span>{ T.translate('DR') + ' ' }</span>{ T.translate('NAME') }</h1>
           </div>
-        </div>,
+        </div>
 
         <div key="2" className="row">
           <div className={ paragraphContainerClasses }>
             <p className={ paragraphClasses } ref={ (_) => (this.paragraph = _)}>{ T.translate('DESC_LINE') }</p>
           </div>
-        </div>,
+        </div>
 
         <div key="3" className="row">
           <div className="col-xs-12 lj-header-button lj-block-center">

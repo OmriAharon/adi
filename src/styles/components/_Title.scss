@@ -41,7 +41,7 @@
   font-size: 2.8em;
   font-weight: 300;
   color: black;
-  margin: 0;
+  margin-top: 0;
   word-wrap: break-word;
 }
 
@@ -111,6 +111,10 @@
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+
+    &:not(.Title-container--rtl) {
+      margin-top: 20px;
+    }
   }
 }
 
@@ -124,7 +128,7 @@
   .lj-title {
     h1 {
       text-align: center;
-      margin: 0;
+      margin-top: 0;
     }
   }
 

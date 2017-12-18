@@ -355,8 +355,7 @@ header > .container {
   /* HEADER */
 
   .main-container {
-    background: white;
-    opacity: 0.85;
+    background: rgba(255, 255, 255, 0);
   }
 
   .lj-logo a {
@@ -392,9 +391,9 @@ header > .container {
   /* HEADER */
 
   .lj-text-center, lj-title {
-    .lj-title h1 {
-      margin: 0;
-    }
+    //.lj-title h1 {
+      //margin: 0;
+    //}
 
     &.in-title {
       text-align: center;

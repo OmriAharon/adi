@@ -1,0 +1,13 @@
+{
+  "name": "SendMail",
+  "version": "0.0.1",
+  "homepage": "www.adigoldshtein.com",
+  "description": "Send email",
+  "scripts": {
+
+  },
+  "dependencies": {
+    "nodemailer": "^4.4.1"
+  },
+  "devDependencies": {}
+}

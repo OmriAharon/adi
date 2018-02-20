@@ -13,11 +13,11 @@ CONTACT: צור קשר
 # Features
 
 SCHOOL: בוגרת הארץ
-SCHOOL_DESC: בעלת דוקטורט מאוניברסיטת תל אביב.
-INSTRUCTOR: מדריכה
+SCHOOL_DESC: בעלת תואר ברפואת שיניים מאוניברסיטת תל אביב.
+INSTRUCTOR: מדריכת סטודנטים
 INSTRUCTOR_DESC: מדריכת סטודנטים בלימודים הקליניים באוניברסיטת תל אביב.
 GAS: גז צחוק
-GAS_DESC: מוסמכת לטפל בחמצן דו-חנקני ("גז צחוק").
+GAS_DESC: מטפלת בגז צחוק (נייטרוס).
 
 # Footer
 
@@ -30,3 +30,7 @@ PLACEHOLDER_NAME: שם
 PLACEHOLDER_EMAIL: אי-מייל
 PLACEHOLDER_PHONE: טלפון
 PLACEHOLDER_MESSAGE: הודעה
+HAMASHTELA: מרפאת מומחים
+HAMASHTELA_ADDRESS_1: "סשה ארגוב 15"
+HAMASHTELA_ADDRESS_2: "שכונת המשתלה"
+HAMASHTELA_ADDRESS_3: תל-אביב

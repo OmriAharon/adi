@@ -1,5 +1,5 @@
 const config = {
-  API_DOMAIN: 'http://local-adigoldshtein.com',
+  CONTACT_ENDPOINT: 'https://fd3kjuggg1.execute-api.eu-west-2.amazonaws.com/prod/SendEmail',
   ORIGINS: {
     OWN_SITE: 'http://www.adigoldshtein.com'
   },

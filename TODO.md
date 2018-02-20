@@ -1,7 +1,6 @@
-
 Adjust texts
 Update with facebook page
-Add markers according to where Adi is going to work
+Add markers according to where Adi is going to work - InfoWindow
 
 Deploy to AWS?
 

@@ -1,6 +1,6 @@
 const config = {
   ENV_NAME: "local",
-  API_DOMAIN: 'http://local-adigoldshtein.com:8000',
+  CONTACT_ENDPOINT: 'http://local-adigoldshtein.com:8000/contact',
   ORIGINS: {
     OWN_SITE: 'http://local-adigoldshtein.com:3001'
   },

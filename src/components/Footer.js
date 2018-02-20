@@ -76,7 +76,7 @@ class Footer extends React.Component {
       });
 
       const { name, email, phoneNumber, message } = this.state;
-      axios.post(`${config.API_DOMAIN}/contact`, {
+      axios.post(`${config.CONTACT_ENDPOINT}`, {
         name,
         email,
         phoneNumber,
@@ -184,6 +184,7 @@ class Footer extends React.Component {
 
             <div className={ googleMapsClasses } ref={ (_) => (this.googleMaps = _)} >
               <MapWithMarker
+                isRTL={ isRTL }
                 googleMapURL={ googleMapsURL }
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: `380px`, marginTop: '30px' }} />}
@@ -195,7 +196,7 @@ class Footer extends React.Component {
               <ul>
                 <li><i className="fa-li fa fa-phone"></i>052-628-0272</li>
                 <li><i className="fa-li fa fa-envelope-o"></i>dradigoldshtein@gmail.com</li>
-                <li><i className="fa-li fa fa-facebook hidden-xs"></i></li>
+                {/*<li><i className="fa-li fa fa-facebook hidden-xs"></i></li>*/}
               </ul>
             </div>
           </div>

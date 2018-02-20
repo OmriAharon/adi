@@ -4,8 +4,31 @@
   background: #f3f3f3;
   width: 100%;
 
+  .gm-style-iw {
+    a {
+      display: block;
+      color: $theme-color;
+      text-decoration: underline;
+
+      &:hover {
+        color: $theme-color-hover;
+      }
+    }
+  }
+
   &--rtl {
     @include hebrewFontFamily();
+
+    .gm-style-iw {
+      & > div:first-child {
+        direction: rtl;
+      }
+
+      & + div {
+        left: auto !important;
+        right: 12px;
+      }
+    }
   }
 }
 

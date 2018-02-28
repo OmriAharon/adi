@@ -9,9 +9,9 @@ import { setLanguageInStore } from '../redux/actions/actions';
 import Title from './Title';
 import Features from './Features';
 import Footer from './Footer';
-import Bg from '../assets/img/bg.jpeg';
-import Bg2 from '../assets/img/bg-2.jpeg';
-import Bg3 from '../assets/img/bg-4.jpeg';
+import Bg from '../assets/img/bg.jpg';
+import Bg2 from '../assets/img/bg_2.jpg';
+import Bg3 from '../assets/img/bg_4.jpg';
 import '../assets/third-party/jquery.backstretch.min';
 
 /**

@@ -7,14 +7,14 @@ SITE_KEYWORDS: adi, goldshtein, aharon, dentist, tel-aviv university, dmd, dr, d
 
 DR: DR.
 NAME: Adi Goldshtein Aharon
-DESC_LINE: Professional, thorough and sensitive dentist, committed to provide you with the highest quality treatment you could ask for.
+DESC_LINE: Excelling graduate and clinical instructor at the Dentistry school of Tel-Aviv University. Dr. Adi Goldstein Aharon practices general and restorative dentistry, while using the most advanced digital means available.
 CONTACT: Contact
 
 # Features
 
 SCHOOL: Elite School
 SCHOOL_DESC: Graduated Dentistry school at Tel-Aviv University.
-INSTRUCTOR: Instructor
+INSTRUCTOR: Student Instructor
 INSTRUCTOR_DESC: Clinical years instructor at Tel-Aviv University.
 GAS: Nitrous oxide
 GAS_DESC: Licensed to practice Nitrous oxide ("Laughing Gas").
@@ -30,6 +30,22 @@ PLACEHOLDER_NAME: Name
 PLACEHOLDER_EMAIL: Email
 PLACEHOLDER_PHONE: Phone number
 PLACEHOLDER_MESSAGE: Message
+
+
+# HAMASHTELA
 HAMASHTELA: Specialists clinic
 HAMASHTELA_ADDRESS_1: "Alexander Sasha Argov St 15"
 HAMASHTELA_ADDRESS_2: "Tel Aviv-Yafo"
+HAMASHTELA_PHONE: 03-6488888
+
+# KLALIT
+KLALIT_ADDRESS_1: "Ha'im Levanon corner, access through gate #10"
+KLALIT_ADDRESS_2: 'Located inside the Dentistry School of Tel Aviv University'
+KLALIT_ADDRESS_3: Tel Aviv-Yafo
+KLALIT_PHONE: 03-5272677
+
+# MACCABI
+MACCABI_ADDRESS_1: Brodetsky 43
+MACCABI_ADDRESS_2: Ramat Aviv
+MACCABI_ADDRESS_3: Tel Aviv-Yafo
+MACCABI_PHONE: 073-2818300

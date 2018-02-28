@@ -14,6 +14,10 @@
         color: $theme-color-hover;
       }
     }
+
+    img {
+      width: 90px;
+    }
   }
 
   &--rtl {
@@ -29,6 +33,10 @@
         right: 12px;
       }
     }
+  }
+
+  textarea {
+    resize: none;
   }
 }
 

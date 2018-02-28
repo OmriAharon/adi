@@ -201,13 +201,13 @@ class Footer extends React.Component {
             </div>
           </div>
 
-          <div className="row">
-            <div className="col-xs-12 visible-xs lj-mobile-socials">
-              <ul>
-                <li><a className="fa fa-facebook" href="#"></a></li>
-              </ul>
-            </div>
-          </div>
+          {/*<div className="row">*/}
+            {/*<div className="col-xs-12 visible-xs lj-mobile-socials">*/}
+              {/*<ul>*/}
+                {/*<li><a className="fa fa-facebook" href="#"></a></li>*/}
+              {/*</ul>*/}
+            {/*</div>*/}
+          {/*</div>*/}
         </div>
       </footer>
     );

@@ -10,12 +10,13 @@
   margin-left: 150px;
   padding-bottom: 50px;
   padding-left: 40px;
+  padding-right: 40px;
 
   &--rtl {
     direction: rtl;
     margin-left: 0;
     margin-right: 150px;
-    padding-right: 40px;
+    //padding-right: 40px;
     font-family: 'Alef', sans-serif;
 
     @include hebrewFontFamily();
@@ -65,11 +66,11 @@
 
   .lj-title-paragraph {
     @include left-align();
+    width: 100%;
 
     &--rtl {
       text-align: right;
       margin-left: 0;
-      width: 100%;
     }
   }
 }

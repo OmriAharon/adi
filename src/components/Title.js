@@ -77,7 +77,9 @@ class Title extends React.Component {
 
         <div key="2" className="row">
           <div className={ paragraphContainerClasses }>
-            <p className={ paragraphClasses } ref={ (_) => (this.paragraph = _)}>{ T.translate('DESC_LINE') }</p>
+            <p className={ paragraphClasses } ref={ (_) => (this.paragraph = _)}>
+              { T.translate('DESC_LINE') }
+            </p>
           </div>
         </div>
 

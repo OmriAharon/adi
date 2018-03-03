@@ -226,7 +226,7 @@ const languages = [];
 locales.forEach((locale) => {
   languages.push({
     code: locale,
-    localeURL: locale === 'en' ? configFile.ORIGINS.OWN_SITE : configFile.ORIGINS.OWN_SITE + `/${locale}/`
+    localeURL: locale === 'he' ? configFile.ORIGINS.OWN_SITE : configFile.ORIGINS.OWN_SITE + `/${locale}/`
   });
 });
 
@@ -251,7 +251,7 @@ languages.forEach((language) => {
     imageHttps: `${configFile.ORIGINS.OWN_SITE}/${path.basename(faviconPath)}`
   };
 
-  if (language.code !== 'en') {
+  if (language.code !== 'he') {
     htmlConfig.filename = `${language.code}/index.html`;
   }
 

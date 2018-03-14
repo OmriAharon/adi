@@ -134,7 +134,7 @@ class Footer extends React.Component {
       'col-md-6': !isRTL,
       'col-md-5': isRTL
     });
-    const contactDetailsClasses = classnames('col-sm-12', 'col-md-1', 'lj-address', {
+    const contactDetailsClasses = classnames('col-xs-12', 'col-md-1', 'lj-address', {
       'col-md-pull-11': !isRTL,
       'col-md-push-10': isRTL
     });
@@ -194,7 +194,7 @@ class Footer extends React.Component {
 
             <div className={ contactDetailsClasses } ref={ (_) => (this.details = _)}>
               <ul>
-                <li><i className="fa-li fa fa-phone"></i>052-628-0272</li>
+                <li><i className="fa-li fa fa-phone"></i><a href="tel:052-628-0272">052-628-0272</a></li>
                 <li><i className="fa-li fa fa-envelope-o"></i>dradigoldshtein@gmail.com</li>
                 {/*<li><i className="fa-li fa fa-facebook hidden-xs"></i></li>*/}
               </ul>

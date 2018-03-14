@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import T from 'i18n-react';
+import { findDOMNode } from 'react-dom';
 import {
   withScriptjs,
   withGoogleMap,

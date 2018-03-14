@@ -209,6 +209,11 @@ footer h3 {
 .lj-address ul > li {
   position: relative;
   text-align: left;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 .lj-address i {
@@ -255,6 +260,10 @@ footer h3 {
 
   .lj-subtitle {
     text-align: center;
+  }
+
+  .lj-address {
+    margin-top: 0;
   }
 
   .google-maps {

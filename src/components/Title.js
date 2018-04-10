@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import T from 'i18n-react';
 import sr from './ScrollReveal'
+import Adi from '../assets/img/adi.jpg';
 
 class Title extends React.Component {
   constructor(props) {
@@ -15,6 +16,14 @@ class Title extends React.Component {
       origin: 'top',
       duration: 1000,
       delay: 500,
+      distance: '20px',
+      scale: 1,
+      easing: 'ease',
+    };
+    const adiConfig = {
+      origin: 'left',
+      duration: 500,
+      delay: 1000,
       distance: '20px',
       scale: 1,
       easing: 'ease',
@@ -37,6 +46,7 @@ class Title extends React.Component {
     };
 
     sr.reveal(this.overlay, config);
+    sr.reveal(this.adi, config);
     sr.reveal(this.mainTitle, config);
     sr.reveal(this.paragraph, paragraphConfig);
     sr.reveal(this.contactMe, contactMeConfig);
@@ -65,9 +75,17 @@ class Title extends React.Component {
     const contactClasses = classnames('contact-me-container', {
       'contact-me-container--rtl': isRTL
     });
+    const adiContainer = classnames('Title__adi-container', {
+      'isRTL': isRTL,
+      'nonRTL': !isRTL
+    });
 
     return (
       <div className={ titleContainerClasses }>
+        <div className={ adiContainer } ref={ (_) => (this.adi = _)}>
+          <img className="Title__adi-image" src={ Adi } />
+          <div className="Title__adi-image-opacity"/>
+        </div>
         <div className="Title-overlay" ref={ (_) => (this.overlay = _)} />
         <div key="1" className="row">
           <div className="col-xs-12 lj-title" ref={ (_) => (this.mainTitle = _)}>

@@ -1,3 +1,5 @@
+$adi-image-size: 170px;
+
 @mixin left-align() {
   text-align: left;
   margin-left: 0px;
@@ -20,6 +22,32 @@
     font-family: 'Alef', sans-serif;
 
     @include hebrewFontFamily();
+  }
+
+  .Title__adi-container {
+    position: absolute;
+    width: $adi-image-size;
+    height: $adi-image-size;
+    z-index: 1;
+  }
+
+  .Title__adi-image {
+    height: auto;
+    width: auto;
+    max-height: $adi-image-size;
+    max-width: $adi-image-size;
+    border-radius: 50%;
+
+    &-opacity {
+      z-index: 2;
+      background-color: rgba(255, 255, 255, 0.1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+    }
   }
 }
 
@@ -55,6 +83,59 @@
   margin-top: -10px;
 }
 
+.lj-title-paragraph p {
+  font-weight: 400;
+  font-size: 1.15em;
+  margin: 0;
+}
+
+.lj-header-button {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.lj-header-button {
+  a {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    //background-color: transparent;
+    font-family: 'Raleway';
+    padding: 10px 30px;
+    background-color: $theme-color;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  & > div:not(.contact-me-container--rtl) {
+    a {
+      font-weight: 700;
+    }
+  }
+}
+
+.lj-header-button a:hover {
+  background-color: $theme-color-hover;
+}
+
+/* 1. BREAKPOINTS */
+
+@media (min-width: 1025px) {
+  .Title__adi-container {
+    top: -50px;
+
+    &.isRTL {
+      left: -80px;
+    }
+
+    &.nonRTL {
+      right: -100px;
+    }
+  }
+}
+
 @media (min-width: 481px) {
   .contact-me-container {
     @include left-align();
@@ -75,38 +156,6 @@
   }
 }
 
-.lj-title-paragraph p {
-  font-weight: 400;
-  font-size: 1.15em;
-  margin: 0;
-}
-
-.lj-header-button {
-  margin-top: 25px;
-  text-align: center;
-}
-
-.lj-header-button a {
-  display: inline-block;
-  color: #fff;
-  text-align: center;
-  //background-color: transparent;
-  font-family: 'Raleway';
-  font-weight: 700;
-  padding: 10px 30px;
-  background-color: $theme-color;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.lj-header-button a:hover {
-  background-color: $theme-color-hover;
-}
-
-/* 1. BREAKPOINTS */
-
 @media (max-width: 1024px) {
   .Title-container {
     width: 100%;
@@ -117,6 +166,14 @@
       margin-top: 20px;
     }
   }
+
+  .Title__adi-container {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: -130px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -124,6 +181,7 @@
   .Title-container {
     padding-left: 0;
     padding-right: 0;
+    margin-top: 10px;
   }
 
   .lj-title {
@@ -137,4 +195,15 @@
     text-align: center !important;
   }
 
+}
+
+@media (max-width: 400px) {
+
+  .Title__adi-container {
+    top: -60px;
+  }
+
+  .lj-title {
+    margin-top: 100px;
+  }
 }

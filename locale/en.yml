@@ -13,9 +13,9 @@ CONTACT: Contact
 # Features
 
 SCHOOL: Elite School
-SCHOOL_DESC: Graduated Dentistry school at Tel-Aviv University.
+SCHOOL_DESC: "Graduated Dentistry school at \n Tel-Aviv University."
 INSTRUCTOR: Student Instructor
-INSTRUCTOR_DESC: Clinical years instructor at Tel-Aviv University.
+INSTRUCTOR_DESC: "Clinical years instructor at \n Tel-Aviv University."
 GAS: Nitrous oxide
 GAS_DESC: Licensed to practice Nitrous oxide ("Laughing Gas").
 

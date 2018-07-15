@@ -1,11 +1,15 @@
 const nodemailer = require('nodemailer');
 
-const sendMail = (data, callback) => {
+const sendMail = (data, callback, errorCallback) => {
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
+      type: 'OAuth2',
       user: 'dradigoldshtein@gmail.com',
-      pass: 'pass234!!'
+      accessToken: 'ya29.Glz4BfjPHLMXxPm5mmbP9QTb_6wELRWdfZ9LNpRiDqn5UiK0rnwHFQCOgRjvA8iiw9wol_o7bb4CueJ-_QdYO8_eU0Rfbsqj5a_cP-oGJIzpbIp5teQKIxZF0tiPkg',
+      refreshToken: 'ya29.Glv4BSxYSVtm9ZcS6q4POhZ3U-CZ1dOaVYMkSnPmeWtgKa-QhP6eVyoNyeoG_3co8PGaRwuMj4P6cIAzmjswFfPrYZjbaH6l7zekZJP9ziVnCIcOKBj6B3SYg02J'
     }
   });
 
@@ -20,6 +24,7 @@ const sendMail = (data, callback) => {
   // send mail with defined transport object
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
+      errorCallback();
       return console.log(error);
     }
     console.log('Message sent: %s', info.messageId);
@@ -30,6 +35,6 @@ const sendMail = (data, callback) => {
 
 module.exports = function(app, db) {
   app.post('/contact', (req, res) => {
-    sendMail(req.body, () => res.send('OK'));
+    sendMail(req.body, () => res.send('OK'), () => { res.status(500); res.send('Not ok') });
   });
 };

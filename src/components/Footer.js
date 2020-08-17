@@ -143,7 +143,7 @@ class Footer extends React.Component {
       'col-md-pull-3': isRTL,
       'flex-reverse': isRTL
     });
-    const googleMapsURL = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDwylj22KLA5Myvzob5uvoBQ2AQMMbftOg&v=3.exp&libraries=geometry,drawing,places&language=${getLanguage()}`;
+    const googleMapsURL = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCeM29JOFmAJKTZ8hH6MiMqTN_pIS5zpXA&v=3.exp&libraries=geometry,drawing,places&language=${getLanguage()}`;
 
     return (
       <footer className={ footerClasses }>

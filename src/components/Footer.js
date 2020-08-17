@@ -28,8 +28,8 @@ class Footer extends React.Component {
 
     const config = (origin = 'top') => ({
       origin,
-      duration: 1000,
-      delay: 500,
+      duration: 300,
+      delay: 200,
       distance: '20px',
       scale: 1,
       easing: 'ease',
@@ -194,8 +194,8 @@ class Footer extends React.Component {
 
             <div className={ contactDetailsClasses } ref={ (_) => (this.details = _)}>
               <ul>
-                <li><i className="fa-li fa fa-phone"></i><a href="tel:052-628-0272">052-628-0272</a></li>
                 <li><i className="fa-li fa fa-envelope-o"></i>dradigoldshtein@gmail.com</li>
+                <li><i className="fa-li fa fa-envelope-o"></i>{ T.translate('LIBI_ADDRESS_1') }, { T.translate('LIBI_ADDRESS_2') }</li>
                 {/*<li><i className="fa-li fa fa-facebook hidden-xs"></i></li>*/}
               </ul>
             </div>

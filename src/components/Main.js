@@ -9,7 +9,7 @@ import { setLanguageInStore } from '../redux/actions/actions';
 import Title from './Title';
 import Features from './Features';
 import Footer from './Footer';
-import Bg from '../assets/img/bg.jpg';
+import Adibg from '../assets/img/adibg.jpg';
 import Bg2 from '../assets/img/bg_2.jpg';
 import Bg3 from '../assets/img/bg_4.jpg';
 import '../assets/third-party/jquery.backstretch.min';
@@ -37,7 +37,7 @@ export class Main extends Component {
   }
 
   componentDidMount() {
-    $('header').backstretch([Bg, Bg2, Bg3], {duration: 5000, fade: 750});
+    $('header').backstretch([Adibg], {scale: 'fit-smaller', duration: 5000, fade: 750});
   }
 
   onSelectLocale(countryCode) {

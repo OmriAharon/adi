@@ -63,6 +63,12 @@ $adi-image-size: 170px;
 
 .lj-title {
   margin-top: 50px;
+  padding-left: 80px;
+
+  &--rtl {
+    padding-left: 0;
+    padding-right: 80px;
+  }
 }
 
 .lj-title h1 {
@@ -127,11 +133,11 @@ $adi-image-size: 170px;
     top: -50px;
 
     &.isRTL {
-      left: -80px;
+      right: -80px;
     }
 
     &.nonRTL {
-      right: -100px;
+      left: -100px;
     }
   }
 }
@@ -187,6 +193,7 @@ $adi-image-size: 170px;
   .lj-title {
     h1 {
       text-align: center;
+      font-size: 2.6em;
       margin-top: 0;
     }
   }
@@ -204,6 +211,8 @@ $adi-image-size: 170px;
   }
 
   .lj-title {
+    padding-right: 0;
+    padding-left: 0;
     margin-top: 100px;
   }
 }

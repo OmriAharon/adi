@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import T from 'i18n-react';
 import sr from './ScrollReveal'
-import Adi from '../assets/img/adi.jpg';
+import Adi from '../assets/img/adi2.png';
 
 class Title extends React.Component {
   constructor(props) {
@@ -14,32 +14,32 @@ class Title extends React.Component {
   componentDidMount() {
     const config = {
       origin: 'top',
-      duration: 1000,
-      delay: 500,
+      duration: 600,
+      delay: 300,
       distance: '20px',
       scale: 1,
       easing: 'ease',
     };
     const adiConfig = {
       origin: 'left',
-      duration: 500,
-      delay: 1000,
+      duration: 600,
+      delay: 600,
       distance: '20px',
       scale: 1,
       easing: 'ease',
     };
     const paragraphConfig = {
       origin: 'top',
-      duration: 1000,
-      delay: 1000,
+      duration: 600,
+      delay: 900,
       distance: '10px',
       scale: 1,
       easing: 'ease'
     };
     const contactMeConfig = {
       origin: 'bottom',
-      duration: 1000,
-      delay: 1500,
+      duration: 600,
+      delay: 1200,
       distance: '20px',
       scale: 1,
       easing: 'ease'
@@ -62,6 +62,9 @@ class Title extends React.Component {
     const { isRTL } = this.props;
     const titleContainerClasses = classnames('Title-container', {
       'Title-container--rtl': isRTL
+    });
+    const titleUpperClasses = classnames('col-xs-12 lj-title', {
+      'lj-title--rtl': isRTL
     });
     const titleClasses = classnames({
       'lj-text-right': isRTL
@@ -88,7 +91,7 @@ class Title extends React.Component {
         </div>
         <div className="Title-overlay" ref={ (_) => (this.overlay = _)} />
         <div key="1" className="row">
-          <div className="col-xs-12 lj-title" ref={ (_) => (this.mainTitle = _)}>
+          <div className={ titleUpperClasses } ref={ (_) => (this.mainTitle = _)}>
             <h1 className={ titleClasses }><span>{ T.translate('DR') + ' ' }</span>{ T.translate('NAME') }</h1>
           </div>
         </div>

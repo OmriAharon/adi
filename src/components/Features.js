@@ -13,8 +13,8 @@ class Features extends React.Component {
   componentDidMount() {
     const config = (position, distance = '20px') => ({
       origin: position,
-      duration: 1000,
-      delay: 500,
+      duration: 300,
+      delay: 200,
       distance,
       scale: 1,
       easing: 'ease'

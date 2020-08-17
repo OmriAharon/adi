@@ -13,9 +13,9 @@ CONTACT: Contact
 # Features
 
 SCHOOL: Elite School
-SCHOOL_DESC: "Graduated Dentistry school at \n Tel-Aviv University."
+SCHOOL_DESC: "D.M.D in Dentistry from \n Tel-Aviv University."
 INSTRUCTOR: Student Instructor
-INSTRUCTOR_DESC: "Clinical years instructor at \n Tel-Aviv University."
+INSTRUCTOR_DESC: "Clinical instructor of Dentistry students at \n Tel-Aviv University."
 GAS: Nitrous oxide
 GAS_DESC: Licensed to practice Nitrous oxide ("Laughing Gas").
 
@@ -49,3 +49,9 @@ MACCABI_ADDRESS_1: Brodetsky 43
 MACCABI_ADDRESS_2: Ramat Aviv
 MACCABI_ADDRESS_3: Tel Aviv-Yafo
 MACCABI_PHONE: 073-2818300
+
+# LIBI
+LIBI: Dr. Libby Carmi
+LIBI_ADDRESS_1: Rodenski St 5
+LIBI_ADDRESS_2: Tel Aviv-Yafo
+LIBI_PHONE: 03-620-0711

@@ -20,7 +20,7 @@ class GoogleMapComponent extends Component {
     this.state ={
       maccabbiIsOpen: false,
       klalitIsOpen: false,
-      mashtelaIsOpen: false
+      libbylaIsOpen: false
     };
 
     this.toggleMaccabbi = this.toggleMaccabbi.bind(this);
@@ -35,8 +35,8 @@ class GoogleMapComponent extends Component {
     this.setState({ klalitIsOpen: !this.state.klalitIsOpen })
   }
 
-  toggleMashtela() {
-    this.setState({ mashtelaIsOpen: !this.state.mashtelaIsOpen })
+  toggleLibby() {
+    this.setState({ libbylaIsOpen: !this.state.libbylaIsOpen })
   }
 
   _maccabi() {
@@ -82,15 +82,14 @@ class GoogleMapComponent extends Component {
 
   _private() {
     return <Marker
-      onClick={() => this.toggleMashtela()}
-      position={{lat: 32.126473, lng: 34.829789}}>
-      { this.state.mashtelaIsOpen && <InfoWindow onCloseClick={() => this.toggleMashtela()}>
+      onClick={() => this.toggleLibby()}
+      position={{lat: 32.120662, lng: 34.792730}}>
+      { this.state.libbylaIsOpen && <InfoWindow onCloseClick={() => this.toggleLibby()}>
         <div>
-          <a href="https://www.asafrana.dental/" target="_blank" rel="noreferrer noopener">{ T.translate('HAMASHTELA') }</a>
-          <div>{ T.translate('HAMASHTELA_ADDRESS_1') }</div>
-          <div>{ T.translate('HAMASHTELA_ADDRESS_2') }</div>
-          { this.props.isRTL && <div>{ T.translate('HAMASHTELA_ADDRESS_3') }</div> }
-          <div>{ T.translate('HAMASHTELA_PHONE') }</div>
+          <a href="https://www.drcarmi.co.il/" target="_blank" rel="noreferrer noopener">{ T.translate('LIBI') }</a>
+          <div>{ T.translate('LIBI_ADDRESS_1') }</div>
+          <div>{ T.translate('LIBI_ADDRESS_2') }</div>
+          <div>{ T.translate('LIBI_PHONE') }</div>
         </div>
       </InfoWindow> }
     </Marker>;
@@ -99,7 +98,7 @@ class GoogleMapComponent extends Component {
   render() {
     return (<GoogleMap
       defaultZoom={13}
-      defaultCenter={{lat: 32.127997, lng: 34.806565}}
+      defaultCenter={{lat: 32.120662, lng: 34.792730}}
     >
       {/*{ this._maccabi() }*/}
       {/*{ this._klalit() }*/}

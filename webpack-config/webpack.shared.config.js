@@ -44,7 +44,8 @@ const nodeModulesPath = path.resolve(rootDirectory, 'node_modules');
 const indexHtmlPath = path.resolve(rootDirectory, 'index.html');
 const indexHtmlTitle = 'Adi Goldshtein Dentist';
 const buildPath = path.resolve(rootDirectory, 'dist');
-const faviconPath = `${srcPath}/assets/favicons/favicon.png`;
+const faviconPath = `${srcPath}/assets/favicons/adifavicon.png`;
+const googleVerificationHtmlPath = `${rootDirectory}/google3c89aa9647762e34.html`;
 
 const config = {
   entry: {
@@ -153,6 +154,7 @@ const config = {
   plugins: [
     new CleanPlugin(['dist'], {root: currentDirectory}),
     new CopyPlugin([{ from: faviconPath, to: path.basename(faviconPath) }]),
+    new CopyPlugin([{ from: googleVerificationHtmlPath, to: path.basename(googleVerificationHtmlPath) }]),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery"

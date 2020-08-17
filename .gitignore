@@ -27,5 +27,7 @@ webpack.stats.json
 # zips
 *.zip
 
+#firebase
+
 #AWS
 hiddenS3Data.json

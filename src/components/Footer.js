@@ -195,7 +195,8 @@ class Footer extends React.Component {
             <div className={ contactDetailsClasses } ref={ (_) => (this.details = _)}>
               <ul>
                 <li><i className="fa-li fa fa-envelope-o"></i>dradigoldshtein@gmail.com</li>
-                <li><i className="fa-li fa fa-envelope-o"></i>{ T.translate('LIBI_ADDRESS_1') }, { T.translate('LIBI_ADDRESS_2') }</li>
+                <li><i className="fa-li fa fa-map-marker"></i>{ T.translate('LIBI_ADDRESS_1') }, { T.translate('LIBI_ADDRESS_2') }</li>
+                <li><i className="fa-li fa fa-phone"></i>{ T.translate('LIBI_PHONE') }</li>
                 {/*<li><i className="fa-li fa fa-facebook hidden-xs"></i></li>*/}
               </ul>
             </div>

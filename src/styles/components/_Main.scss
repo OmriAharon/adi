@@ -344,6 +344,9 @@ header > .container {
 /* 8. BREAKPOINTS */
 
 @media (min-width: 481px) {
+  .features {
+    display: flex;
+  }
   .features-row--rtl {
     display: flex;
   }

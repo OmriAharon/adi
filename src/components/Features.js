@@ -26,9 +26,12 @@ class Features extends React.Component {
     sr.reveal(this.featureTwoA, config('top', 0));
     sr.reveal(this.featureTwoB, config('bottom', 0));
     sr.reveal(this.featureTwoC, config('bottom', 0));
-    sr.reveal(this.featureThreeA, config(this.props.isRTL ? 'left' : 'right'));
-    sr.reveal(this.featureThreeB, config(this.props.isRTL ? 'left' : 'right'));
-    sr.reveal(this.featureThreeC, config(this.props.isRTL ? 'left' : 'right'));
+    sr.reveal(this.featureThreeA, config('top', 0));
+    sr.reveal(this.featureThreeB, config('bottom', 0));
+    sr.reveal(this.featureThreeC, config('bottom', 0));
+    sr.reveal(this.featureFourA, config(this.props.isRTL ? 'left' : 'right'));
+    sr.reveal(this.featureFourB, config(this.props.isRTL ? 'left' : 'right'));
+    sr.reveal(this.featureFourC, config(this.props.isRTL ? 'left' : 'right'));
   }
 
   getLaughingGas() {
@@ -55,12 +58,20 @@ class Features extends React.Component {
     </div>;
   }
 
+  getInjections() {
+    return <div className="col-sm-4 lj-icon-box lj-text-center">
+      <span ref={(_) => (this.featureFourA = _)}><i className="fa fa-heartbeat"></i></span>
+      <h2 ref={(_) => (this.featureFourB = _)}>{T.translate('INJECTION')}</h2>
+      <p ref={(_) => (this.featureFourC = _)}>{T.translate('INJECTION_DESC')}</p>
+    </div>;
+  }
+
   render() {
     const { isRTL } = this.props;
     const featuresClasses = classnames('features', {
       'features--rtl': isRTL
     });
-    const featureWrapperClasses = classnames('row', {
+    const featureWrapperClasses = classnames('row features', {
       'features-row--rtl': isRTL
     });
 
@@ -73,6 +84,8 @@ class Features extends React.Component {
             {this.getInstructor()}
 
             {this.getLaughingGas()}
+
+            {this.getInjections()}
           </div>
         </div>
       </div>

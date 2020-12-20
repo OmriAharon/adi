@@ -7,7 +7,7 @@ $adi-image-size: 170px;
 
 .Title-container {
   position: relative;
-  width: 650px;
+  width: 560px;
   margin-top: -100px;
   margin-left: 150px;
   padding-bottom: 50px;
@@ -16,6 +16,7 @@ $adi-image-size: 170px;
 
   &--rtl {
     direction: rtl;
+    width: 610px;
     margin-left: 0;
     margin-right: 150px;
     //padding-right: 40px;

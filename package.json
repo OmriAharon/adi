@@ -94,7 +94,7 @@
     "watch-run": "1.2.5",
     "webpack": "3.3.0",
     "webpack-bundle-analyzer": "2.8.3",
-    "webpack-dashboard": "1.0.0-5",
+    "webpack-dashboard": "3.3.7",
     "webpack-dev-server": "2.5.1",
     "yaml-loader": "0.5.0"
   }

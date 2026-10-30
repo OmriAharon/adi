@@ -18,8 +18,8 @@ function picture(asset, base, widths, sizes, alt, { eager = false, w, h } = {}) 
 
 function head(t, { asset, css, title, description, canonical, noindex = false }) {
   const he = content.he, en = content.en;
-  const bodyFont = t.lang === 'he' ? 'heebo-hebrew' : 'heebo-latin';
-  const headFont = t.lang === 'he' ? 'frank-ruhl-libre-hebrew' : 'frank-ruhl-libre-latin';
+  const bodyFont = `assistant-${t.lang === 'he' ? 'hebrew' : 'latin'}-wght-normal`;
+  const headFont = `bellefair-${t.lang === 'he' ? 'hebrew' : 'latin'}-400-normal`;
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -56,8 +56,8 @@ function head(t, { asset, css, title, description, canonical, noindex = false })
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="${asset('img/favicon.svg')}" type="image/svg+xml">
   <link rel="apple-touch-icon" href="${asset('img/apple-touch-icon.png')}">
-  <link rel="preload" href="${asset(`fonts/${bodyFont}-wght-normal.woff2`)}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="${asset(`fonts/${headFont}-wght-normal.woff2`)}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${asset(`fonts/${bodyFont}.woff2`)}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${asset(`fonts/${headFont}.woff2`)}" as="font" type="font/woff2" crossorigin>
   <style>${css}</style>
   ${noindex ? '' : `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
 </head>`;
@@ -99,7 +99,7 @@ function hero(t, asset) {
         ${picture(asset, 'hero', [560, 880, 1092], '(min-width: 900px) 42vw, 92vw', t.hero.imageAlt, { eager: true, w: 1092, h: 1365 })}
       </div>
       <div class="hero-badge">
-        <span class="hero-badge-icon">${icon('microscope')}</span>
+        <span class="hero-badge-icon">${icon('graduation')}</span>
         <span>${esc(t.hero.badge)}</span>
       </div>
     </div>
@@ -224,9 +224,9 @@ ${head(t, { asset, css, title: t.title, description: t.description, canonical: a
 ${header(t)}
 <main id="main">
 ${hero(t, asset)}
+${microscope(t, asset)}
 ${about(t)}
 ${treatments(t)}
-${microscope(t, asset)}
 ${contact(t)}
 </main>
 ${footer(t)}

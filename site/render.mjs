@@ -107,7 +107,7 @@ function hero(t, asset) {
         ${picture(asset, 'portrait', [560, 880, 1092], '(min-width: 900px) 42vw, 92vw', t.hero.imageAlt, { eager: true, w: 1092, h: 1365 })}
       </div>
       <div class="hero-badge">
-        <span class="hero-badge-icon">${icon('graduation')}</span>
+        <span class="hero-badge-icon">${icon('microscope')}</span>
         <span>${esc(t.hero.badge)}</span>
       </div>
     </div>

@@ -32,7 +32,7 @@ export const content = {
       cta: 'לתיאום ייעוץ',
       ctaSecondary: 'תחומי טיפול',
       imageAlt: 'ד״ר עדי גולדשטיין אהרון במרפאה',
-      badge: 'ראשת קורס טיפולי שורש, אוניברסיטת תל אביב',
+      badge: 'כלל הטיפולים מבוצעים תחת מיקרוסקופ אנדודונטי',
     },
 
     about: {
@@ -115,7 +115,7 @@ export const content = {
       cta: 'Book a consultation',
       ctaSecondary: 'Treatments',
       imageAlt: 'Dr. Adi Goldshtein Aharon at the clinic',
-      badge: 'Head of the endodontics course, Tel Aviv University',
+      badge: 'All treatments are performed under an endodontic microscope',
     },
 
     about: {

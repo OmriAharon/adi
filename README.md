@@ -24,8 +24,10 @@ Requires Node 18+.
 **Deploys are automatic:** every push to `master` builds the site and deploys it to Firebase
 Hosting via `.github/workflows/deploy.yml` (also runnable by hand from the Actions tab).
 It authenticates with the `FIREBASE_SERVICE_ACCOUNT_ADIAPP_D1B5E` repository secret: a
-service-account JSON key with the *Firebase Hosting Admin*, *API Keys Viewer* and
-*Service Usage Consumer* roles.
+service-account JSON key with the *Firebase Hosting Admin*, *Firebase Viewer*,
+*API Keys Viewer* and *Service Usage Consumer* roles on project `adiapp-d1b5e` (the account
+itself lives in the `adi-dentist-website` project). The project must have the Service Usage
+and Firebase Hosting APIs enabled.
 `npm run deploy` is the manual fallback (needs the Firebase CLI and `firebase login`).
 
 ## Photos

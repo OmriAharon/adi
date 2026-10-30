@@ -15,7 +15,7 @@ Layout is in `site/render.mjs`, styles in `site/styles.css`, and the small clien
 
 ```bash
 npm run build      # → dist/
-npm run preview    # build + serve dist/ at http://localhost:5000
+npm run preview    # build + serve dist/ at http://localhost:4173
 npm run deploy     # build + firebase deploy --only hosting
 ```
 

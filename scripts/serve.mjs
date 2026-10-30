@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const dist = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'dist');
-const port = Number(process.env.PORT) || 5000;
+const port = Number(process.env.PORT) || 4173;
 const types = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript',
   '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp',

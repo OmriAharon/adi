@@ -34,13 +34,14 @@ jobs:
           printf '%s' "$SA_KEY" > "$RUNNER_TEMP/sa.json"
           export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json"
           set +e
-          npx --yes firebase-tools@latest deploy --only hosting --project adiapp-d1b5e --non-interactive 2>&1 | tee "$RUNNER_TEMP/deploy.log"
+          npx --yes firebase-tools@latest deploy --only hosting --project adiapp-d1b5e --non-interactive --debug 2>&1 | tee "$RUNNER_TEMP/deploy.log"
           status=${PIPESTATUS[0]}
           rm -f "$RUNNER_TEMP/sa.json"
           if [ "$status" -ne 0 ]; then
             # Surface Firebase's actual error as annotations, visible on the run summary page.
-            sed -e 's/\x1b\[[0-9;]*m//g' "$RUNNER_TEMP/deploy.log" | grep -iE 'error|denied|not found|permission' \
-              | grep -v 'Error Context' | head -6 \
+            sed -e 's/\x1b\[[0-9;]*m//g' "$RUNNER_TEMP/deploy.log" \
+              | grep -E '^Error|\[apiv2\]\[status\].* [45][0-9][0-9]|"message"' \
+              | grep -v 'Error Context' | tail -8 | cut -c1-600 \
               | sed -e 's/%/%25/g' | while IFS= read -r line; do echo "::error::${line}"; done
             exit "$status"
           fi

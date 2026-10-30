@@ -1,12 +1,10 @@
 {
-  "name": "SendMail",
-  "version": "0.0.10",
-  "homepage": "www.adigoldshtein.com",
-  "description": "Send email",
-  "scripts": {},
+  "name": "send-email",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Contact-form mailer for adigoldshtein.com (AWS Lambda, Node.js 22/24)",
+  "main": "index.js",
   "dependencies": {
-    "nodemailer": "^4.4.1",
-    "googleapis": "^57.0.0"
-  },
-  "devDependencies": {}
+    "nodemailer": "^7.0.0"
+  }
 }

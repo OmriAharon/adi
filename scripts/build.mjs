@@ -51,8 +51,10 @@ const js = (await readFile(path.join(site, 'main.js'), 'utf8'))
   .trim();
 
 // 3. Pages
-await writeFile(path.join(dist, 'index.html'), renderPage(content.he, { asset, css, js }));
-await writeFile(path.join(dist, 'en.html'), renderPage(content.en, { asset, css, js }));
+const PREVIEW = Boolean(process.env.PREVIEW);
+const noindex = (html) => PREVIEW ? html.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n  <meta name="robots" content="noindex, nofollow">') : html;
+await writeFile(path.join(dist, 'index.html'), noindex(renderPage(content.he, { asset, css, js })));
+await writeFile(path.join(dist, 'en.html'), noindex(renderPage(content.en, { asset, css, js })));
 await writeFile(path.join(dist, '404.html'), render404({ asset, css }));
 
 // 4. Static files (Google Search Console verification etc.)
@@ -61,7 +63,9 @@ await cp(path.join(site, 'static'), dist, { recursive: true });
 // 5. SEO files
 const today = new Date().toISOString().slice(0, 10);
 const urls = [content.he, content.en].map((t) => `${SITE_URL}${t.path === '/' ? '/' : t.path}`);
-await writeFile(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+await writeFile(path.join(dist, 'robots.txt'), PREVIEW
+  ? 'User-agent: *\nDisallow: /\n'
+  : `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 await writeFile(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls.map((u) => `  <url>
@@ -75,4 +79,4 @@ ${urls.map((u) => `  <url>
 `);
 
 const size = async (f) => (await readFile(path.join(dist, f))).length;
-console.log(`Built dist/ — index.html ${(await size('index.html') / 1024).toFixed(1)} KB, en.html ${(await size('en.html') / 1024).toFixed(1)} KB`);
+console.log(`Built dist/${PREVIEW ? ' (preview, noindex)' : ''} — index.html ${(await size('index.html') / 1024).toFixed(1)} KB, en.html ${(await size('en.html') / 1024).toFixed(1)} KB`);

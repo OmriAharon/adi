@@ -1,12 +1,14 @@
 name: Deploy to Firebase Hosting
 
+# master        → live site (adigoldshtein.com)
+# other branches → preview channel (private URL, noindex), shown as a notice on the run
 on:
   push:
-    branches: [master]
+    branches: ['**']
   workflow_dispatch:
 
 concurrency:
-  group: firebase-deploy
+  group: firebase-deploy-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -21,7 +23,9 @@ jobs:
           node-version: 22
       - name: Build static site
         run: npm run build
-      - name: Deploy to Firebase Hosting (live)
+        env:
+          PREVIEW: ${{ github.ref != 'refs/heads/master' && '1' || '' }}
+      - name: Deploy
         env:
           SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ADIAPP_D1B5E }}
           FORCE_COLOR: '0'
@@ -33,8 +37,13 @@ jobs:
           fi
           printf '%s' "$SA_KEY" > "$RUNNER_TEMP/sa.json"
           export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json"
+          if [ "$GITHUB_REF" = "refs/heads/master" ]; then
+            target="deploy --only hosting"
+          else
+            target="hosting:channel:deploy preview --expires 30d"
+          fi
           set +e
-          npx --yes firebase-tools@latest deploy --only hosting --project adiapp-d1b5e --non-interactive 2>&1 | tee "$RUNNER_TEMP/deploy.log"
+          npx --yes firebase-tools@latest $target --project adiapp-d1b5e --non-interactive 2>&1 | tee "$RUNNER_TEMP/deploy.log"
           status=${PIPESTATUS[0]}
           rm -f "$RUNNER_TEMP/sa.json"
           if [ "$status" -ne 0 ]; then
@@ -44,4 +53,9 @@ jobs:
               | grep -v 'Error Context' | tail -8 | cut -c1-600 \
               | sed -e 's/%/%25/g' | while IFS= read -r line; do echo "::error::${line}"; done
             exit "$status"
+          fi
+          url=$(grep -oE 'https://adiapp-d1b5e--preview-[a-z0-9-]+\.web\.app' "$RUNNER_TEMP/deploy.log" | head -1)
+          if [ -n "$url" ]; then
+            echo "::notice title=Preview URL::$url"
+            echo "### Preview: $url" >> "$GITHUB_STEP_SUMMARY"
           fi

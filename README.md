@@ -24,7 +24,8 @@ Requires Node 18+.
 **Deploys are automatic:** every push to `master` builds the site and deploys it to Firebase
 Hosting via `.github/workflows/deploy.yml` (also runnable by hand from the Actions tab).
 It authenticates with the `FIREBASE_SERVICE_ACCOUNT_ADIAPP_D1B5E` repository secret: a
-service-account JSON key with the *Firebase Hosting Admin* and *API Keys Viewer* roles.
+service-account JSON key with the *Firebase Hosting Admin*, *API Keys Viewer* and
+*Service Usage Consumer* roles.
 `npm run deploy` is the manual fallback (needs the Firebase CLI and `firebase login`).
 
 ## Photos

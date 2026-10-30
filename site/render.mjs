@@ -83,8 +83,16 @@ function header(t) {
 }
 
 function hero(t, asset) {
+  const bg = (ext) => [900, 1800].map((w) => `${asset(`img/hero-bg-${w}.${ext}`)} ${w}w`).join(', ');
   return `<section class="hero" aria-labelledby="hero-title">
-  <div class="container hero-grid">
+  <div class="hero-bg" aria-hidden="true">
+    <picture>
+      <source type="image/avif" srcset="${bg('avif')}" sizes="100vw">
+      <source type="image/webp" srcset="${bg('webp')}" sizes="100vw">
+      <img src="${asset('img/hero-bg-1800.jpg')}" srcset="${bg('jpg')}" sizes="100vw" alt="" width="1800" height="1319" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+  <div class="container hero-inner">
     <div class="hero-copy">
       <p class="eyebrow" data-reveal>${esc(t.hero.eyebrow)}</p>
       <h1 id="hero-title" data-reveal><span class="title-prefix">${esc(t.hero.titlePrefix)}</span> ${esc(t.hero.titleName)}</h1>
@@ -93,31 +101,30 @@ function hero(t, asset) {
         <a class="btn btn-primary" href="#contact">${esc(t.hero.cta)} ${icon('arrow', 'icon icon-arrow')}</a>
         <a class="btn btn-ghost" href="#treatments">${esc(t.hero.ctaSecondary)}</a>
       </div>
-    </div>
-    <div class="hero-media" data-reveal>
-      <div class="hero-frame">
-        ${picture(asset, 'hero', [560, 880, 1092], '(min-width: 900px) 42vw, 92vw', t.hero.imageAlt, { eager: true, w: 1092, h: 1365 })}
-      </div>
-      <div class="hero-badge">
-        <span class="hero-badge-icon">${icon('graduation')}</span>
-        <span>${esc(t.hero.badge)}</span>
-      </div>
+      <p class="hero-cred" data-reveal>${icon('graduation')}<span>${esc(t.hero.badge)}</span></p>
     </div>
   </div>
 </section>`;
 }
 
-function about(t) {
+function about(t, asset) {
   return `<section class="section about" id="about" aria-labelledby="about-title">
   <div class="container about-grid">
-    <div class="section-head" data-reveal>
-      <p class="eyebrow">${esc(t.about.eyebrow)}</p>
-      <h2 id="about-title">${esc(t.about.title)}</h2>
-      <p class="section-intro">${esc(t.about.intro)}</p>
+    <div class="about-copy">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">${esc(t.about.eyebrow)}</p>
+        <h2 id="about-title">${esc(t.about.title)}</h2>
+        <p class="section-intro">${esc(t.about.intro)}</p>
+      </div>
+      <ul class="credentials" role="list">
+        ${t.about.items.map((i) => `<li data-reveal><span class="cred-icon">${icon(i.icon)}</span><span>${esc(i.text)}</span></li>`).join('\n        ')}
+      </ul>
     </div>
-    <ul class="credentials" role="list">
-      ${t.about.items.map((i) => `<li data-reveal><span class="cred-icon">${icon(i.icon)}</span><span>${esc(i.text)}</span></li>`).join('\n      ')}
-    </ul>
+    <div class="portrait" data-reveal>
+      <div class="portrait-frame">
+        ${picture(asset, 'portrait', [560, 880, 1092], '(min-width: 900px) 40vw, 92vw', t.hero.imageAlt, { w: 1092, h: 1365 })}
+      </div>
+    </div>
   </div>
 </section>`;
 }
@@ -225,7 +232,7 @@ ${header(t)}
 <main id="main">
 ${hero(t, asset)}
 ${microscope(t, asset)}
-${about(t)}
+${about(t, asset)}
 ${treatments(t)}
 ${contact(t)}
 </main>

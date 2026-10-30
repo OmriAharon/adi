@@ -11,18 +11,37 @@ const src = (f) => path.join(root, 'site/images-src', f);
 const out = (f) => path.join(root, 'site/assets/img', f);
 await mkdir(out(''), { recursive: true });
 
-// Hero: Adi in the clinic, cropped to a 4:5 portrait around her.
+// Portrait (About section): Adi in the clinic, cropped to a 4:5 portrait around her.
 const clinic = sharp(src('adi-clinic.jpg'));
 const { width: cw, height: ch } = await clinic.metadata();
 const cropW = Math.round(ch * 0.8);
 const centerX = Math.round(cw * 0.485);
-const hero = { left: Math.max(0, Math.min(cw - cropW, centerX - Math.round(cropW / 2))), top: 0, width: cropW, height: ch };
+const portrait = { left: Math.max(0, Math.min(cw - cropW, centerX - Math.round(cropW / 2))), top: 0, width: cropW, height: ch };
 
 for (const w of [560, 880, 1092]) {
-  const base = sharp(src('adi-clinic.jpg')).extract(hero).resize({ width: w });
-  await base.clone().avif({ quality: 52, effort: 6 }).toFile(out(`hero-${w}.avif`));
-  await base.clone().webp({ quality: 74, effort: 6 }).toFile(out(`hero-${w}.webp`));
-  await base.clone().jpeg({ quality: 76, mozjpeg: true, progressive: true }).toFile(out(`hero-${w}.jpg`));
+  const base = sharp(src('adi-clinic.jpg')).extract(portrait).resize({ width: w });
+  await base.clone().avif({ quality: 52, effort: 6 }).toFile(out(`portrait-${w}.avif`));
+  await base.clone().webp({ quality: 74, effort: 6 }).toFile(out(`portrait-${w}.webp`));
+  await base.clone().jpeg({ quality: 76, mozjpeg: true, progressive: true }).toFile(out(`portrait-${w}.jpg`));
+}
+
+// Full-screen hero backdrop: the endodontic microscope, desaturated and tinted navy.
+// To use a better photo, replace site/images-src/hero-microscope.jpg (landscape, microscope
+// on the left, ideally 2000px+ wide) and run `npm run images`. Small sources get a soft blur
+// so the upscaling isn't visible behind the translucent overlay.
+const heroSrc = sharp(src('hero-microscope.jpg'));
+const { width: hw } = await heroSrc.metadata();
+const blur = hw < 1200 ? 2.2 * (1800 / hw) / 6 : 0;
+for (const w of [900, 1800]) {
+  let base = sharp(src('hero-microscope.jpg'))
+    .modulate({ saturation: 0 })
+    .linear(1.15, -12)
+    .resize({ width: w, kernel: 'lanczos3' })
+    .tint('#6f8db0');
+  if (blur) base = base.blur(Math.max(0.3, blur * (w / 1800)));
+  await base.clone().avif({ quality: 45, effort: 6 }).toFile(out(`hero-bg-${w}.avif`));
+  await base.clone().webp({ quality: 70, effort: 6 }).toFile(out(`hero-bg-${w}.webp`));
+  await base.clone().jpeg({ quality: 72, mozjpeg: true, progressive: true }).toFile(out(`hero-bg-${w}.jpg`));
 }
 
 // Adi with the endodontic microscope (microscope section).

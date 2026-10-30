@@ -24,6 +24,8 @@ jobs:
       - name: Deploy to Firebase Hosting (live)
         env:
           SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ADIAPP_D1B5E }}
+          FORCE_COLOR: '0'
+          NO_COLOR: '1'
         run: |
           if [ -z "$SA_KEY" ]; then
             echo "::error::Secret FIREBASE_SERVICE_ACCOUNT_ADIAPP_D1B5E is not set"
@@ -37,7 +39,8 @@ jobs:
           rm -f "$RUNNER_TEMP/sa.json"
           if [ "$status" -ne 0 ]; then
             # Surface Firebase's actual error as annotations, visible on the run summary page.
-            grep -E '^Error|HTTP Error|"message"' "$RUNNER_TEMP/deploy.log" | head -5 \
+            sed -e 's/\x1b\[[0-9;]*m//g' "$RUNNER_TEMP/deploy.log" | grep -iE 'error|denied|not found|permission' \
+              | grep -v 'Error Context' | head -6 \
               | sed -e 's/%/%25/g' | while IFS= read -r line; do echo "::error::${line}"; done
             exit "$status"
           fi

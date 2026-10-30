@@ -19,8 +19,13 @@ npm run preview    # build + serve dist/ at http://localhost:4173
 npm run deploy     # build + firebase deploy --only hosting
 ```
 
-Requires Node 18+. `npm run deploy` needs the Firebase CLI (`npm i -g firebase-tools`) and
-`firebase login`.
+Requires Node 18+.
+
+**Deploys are automatic:** every push to `master` builds the site and deploys it to Firebase
+Hosting via `.github/workflows/deploy.yml` (also runnable by hand from the Actions tab).
+It authenticates with the `FIREBASE_SERVICE_ACCOUNT_ADIAPP_D1B5E` repository secret: a
+service-account JSON key with the *Firebase Hosting Admin* and *API Keys Viewer* roles.
+`npm run deploy` is the manual fallback (needs the Firebase CLI and `firebase login`).
 
 ## Photos
 
@@ -36,4 +41,7 @@ npm run images
 
 The form posts JSON (`name`, `email`, `phoneNumber`, `message`) to the existing AWS
 API Gateway → Lambda endpoint (`CONTACT_ENDPOINT` in `site/content.mjs`), which emails
-the clinic. The Lambda source is in `src/nodemailer/`.
+the clinic. The Lambda source is in `src/nodemailer/`; it reads `GMAIL_USER` and
+`GMAIL_APP_PASSWORD` from the function's environment variables. To update it, zip
+`index.js`, `package.json` and `node_modules` (after `npm install` in that folder) and
+upload via Lambda → Code → Upload from → .zip file.

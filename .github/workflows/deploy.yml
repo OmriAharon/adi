@@ -15,16 +15,29 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
       - name: Build static site
         run: npm run build
-      - name: Deploy to live channel
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ADIAPP_D1B5E }}
-          projectId: adiapp-d1b5e
-          channelId: live
+      - name: Deploy to Firebase Hosting (live)
+        env:
+          SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ADIAPP_D1B5E }}
+        run: |
+          if [ -z "$SA_KEY" ]; then
+            echo "::error::Secret FIREBASE_SERVICE_ACCOUNT_ADIAPP_D1B5E is not set"
+            exit 1
+          fi
+          printf '%s' "$SA_KEY" > "$RUNNER_TEMP/sa.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json"
+          set +e
+          npx --yes firebase-tools@latest deploy --only hosting --project adiapp-d1b5e --non-interactive 2>&1 | tee "$RUNNER_TEMP/deploy.log"
+          status=${PIPESTATUS[0]}
+          rm -f "$RUNNER_TEMP/sa.json"
+          if [ "$status" -ne 0 ]; then
+            # Surface Firebase's actual error as annotations, visible on the run summary page.
+            grep -E '^Error|HTTP Error|"message"' "$RUNNER_TEMP/deploy.log" | head -5 \
+              | sed -e 's/%/%25/g' | while IFS= read -r line; do echo "::error::${line}"; done
+            exit "$status"
+          fi
